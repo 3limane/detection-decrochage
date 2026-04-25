@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Le Problème — DécroWatch</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .page-hero { background: linear-gradient(155deg, #EFF6FF 0%, #F8FAFC 60%, #FFF7ED 100%); padding: 130px 0 70px; position: relative; overflow: hidden; }
+    .page-hero::before { content:''; position:absolute; top:-100px; right:-100px; width:500px; height:500px; background:radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 65%); border-radius:50%; }
+    .page-hero-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+    .page-hero h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:800; color:var(--text); letter-spacing:-0.7px; margin:12px 0 16px; line-height:1.2; }
+    .page-hero p { color:var(--text-3); font-size:1.05rem; max-width:580px; }
+    .stat-highlight { display:inline-flex; align-items:center; gap:10px; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:20px 24px; box-shadow:var(--shadow); }
+    .sh-num { font-family:'Plus Jakarta Sans',sans-serif; font-size:2.2rem; font-weight:800; color:var(--red); line-height:1; }
+    .sh-text { font-size:0.85rem; color:var(--text-3); max-width:120px; line-height:1.4; }
+    .stats-row { display:flex; gap:20px; flex-wrap:wrap; margin-top:32px; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+    @media(max-width:768px){ .two-col{grid-template-columns:1fr;} }
+    .callout { background:linear-gradient(135deg,#EFF6FF,#F0FDF4); border:1px solid var(--blue-mid); border-left:4px solid var(--blue); border-radius:var(--radius); padding:24px 28px; margin:32px 0; }
+    .callout p { font-size:1rem; color:var(--text-2); font-style:italic; line-height:1.7; }
+    .callout cite { display:block; font-size:0.8rem; color:var(--text-3); margin-top:10px; font-style:normal; font-weight:600; }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="1.6"/><path d="M9 5.5v3.5l2 1.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="13.5" cy="4.5" r="1.8" fill="#34D399"/></svg>
+      </div>
+      Décro<span>Watch</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="probleme.html">Problème</a></li>
+      <li><a href="solution.html">Solution</a></li>
+      <li><a href="statistiques.html">Statistiques</a></li>
+      <li><a href="equipe.html">Équipe</a></li>
+      <li><a href="solution.html" class="btn nav-cta">Voir la solution →</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-tag">Le problème</div>
+    <h1>Le décrochage scolaire :<br/>un fléau <span style="color:var(--red)">silencieux</span></h1>
+    <p>Le décrochage est rarement soudain. Il se construit progressivement, à travers des signaux faibles souvent ignorés jusqu'à ce qu'il soit trop tard pour agir efficacement.</p>
+    <div class="stats-row">
+      <div class="stat-highlight fade-up">
+        <div class="sh-num">1/5</div>
+        <div class="sh-text">apprenants risque le décrochage en cours de formation</div>
+      </div>
+      <div class="stat-highlight fade-up">
+        <div class="sh-num">72h</div>
+        <div class="sh-text">délai moyen avant qu'une alerte soit détectée manuellement</div>
+      </div>
+      <div class="stat-highlight fade-up">
+        <div class="sh-num">60%</div>
+        <div class="sh-text">des cas auraient pu être prévenus avec une détection précoce</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESSUS -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Comprendre</div>
+      <h2 class="section-title">Comment le décrochage <span class="accent">se construit</span> ?</h2>
+      <p class="section-sub">C'est un processus progressif qui passe par plusieurs étapes identifiables si on dispose des bons outils.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item fade-up">
+        <div class="step-circle">1</div>
+        <div class="step-body">
+          <h3>Désengagement progressif</h3>
+          <p>L'apprenant commence à moins participer en classe, rend moins de devoirs, pose moins de questions. Ces signaux passent souvent inaperçus car ils sont subtils.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="step-circle">2</div>
+        <div class="step-body">
+          <h3>Premières absences</h3>
+          <p>Les retards et absences ponctuelles deviennent progressivement régulières. L'apprenant trouve des prétextes pour éviter les cours.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="step-circle">3</div>
+        <div class="step-body">
+          <h3>Chute des résultats</h3>
+          <p>La baisse de présence et d'implication entraîne mécaniquement une dégradation des notes, créant un cercle vicieux difficile à briser.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="step-circle">4</div>
+        <div class="step-body">
+          <h3>Isolement et abandon</h3>
+          <p>Sans intervention rapide, l'apprenant se déconnecte totalement du groupe et finit par abandonner sa formation de manière définitive.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSÉQUENCES -->
+<section class="bg-light">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Conséquences</div>
+      <h2 class="section-title">Pourquoi agir <span class="accent">tôt</span> ?</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="card fade-up">
+        <div class="card-icon red">💔</div>
+        <h3>Impact humain</h3>
+        <p>Perte de chances, d'avenir et d'estime de soi pour l'apprenant. Le décrochage génère isolement social et difficultés durables d'insertion.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon orange">📚</div>
+        <h3>Impact pédagogique</h3>
+        <p>Échec scolaire massif, difficultés d'insertion professionnelle et dévalorisation du parcours de formation suivi.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon blue">🏛️</div>
+        <h3>Impact institutionnel</h3>
+        <p>Coût financier et humain considérable pour les établissements, baisse des taux de réussite et de la réputation.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:40px;">
+      <p>"Chaque apprenant qui décroche représente un échec collectif — de l'institution, du système, et d'un accompagnement qui n'a pas su détecter les signaux à temps."</p>
+      <cite>— Contexte pédagogique, Groupe ISI, 2026</cite>
+    </div>
+  </div>
+</section>
+
+<!-- INDICATEURS -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Signaux d'alarme</div>
+      <h2 class="section-title">Les 6 indicateurs <span class="accent">clés</span> analysés</h2>
+      <p class="section-sub">Chaque indicateur est pondéré pour calculer un score de risque précis et actionnable par apprenant.</p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-card fade-up">
+        <div class="ind-head"><span class="ind-emoji">📅</span><div><div class="ind-name">Assiduité</div><div class="ind-weight">Poids : 25%</div></div></div>
+        <div class="ind-track"><div class="ind-fill" data-width="80%" style="width:0;background:#EF4444;"></div></div>
+        <div class="ind-pct">Impact : élevé</div>
+        <span class="risk-tag rt-high">Indicateur principal</span>
+      </div>
+      <div class="ind-card fade-up">
+        <div class="ind-head"><span class="ind-emoji">📊</span><div><div class="ind-name">Résultats</div><div class="ind-weight">Poids : 25%</div></div></div>
+        <div class="ind-track"><div class="ind-fill" data-width="75%" style="width:0;background:#F59E0B;"></div></div>
+        <div class="ind-pct">Impact : élevé</div>
+        <span class="risk-tag rt-high">Indicateur principal</span>
+      </div>
+      <div class="ind-card fade-up">
+        <div class="ind-head"><span class="ind-emoji">✏️</span><div><div class="ind-name">Rendus devoirs</div><div class="ind-weight">Poids : 20%</div></div></div>
+        <div class="ind-track"><div class="ind-fill" data-width="60%" style="width:0;background:#2563EB;"></div></div>
+        <div class="ind-pct">Impact : modéré</div>
+        <span class="risk-tag rt-med">Indicateur secondaire</span>
+      </div>
+      <div class="ind-card fade-up">
+        <div class="ind-head"><span class="ind-emoji">🙋</span><div><div class="ind-name">Participation</div><div class="ind-weight">Poids : 15%</div></div></div>
+        <div class="ind-track"><div class="ind-fill" data-width="45%" style="width:0;background:#0EA5E9;"></div></div>
+        <div class="ind-pct">Impact : modéré</div>
+        <span class="risk-tag rt-med">Indicateur comportemental</span>
+      </div>
+      <div class="ind-card fade-up">
+        <div class="ind-head"><span class="ind-emoji">⏱️</span><div><div class="ind-name">Retards</div><div class="ind-weight">Poids : 10%</div></div></div>
+        <div class="ind-track"><div class="ind-fill" data-width="35%" style="width:0;background:#10B981;"></div></div>
+        <div class="ind-pct">Impact : faible</div>
+        <span class="risk-tag rt-low">Indicateur complémentaire</span>
+      </div>
+      <div class="ind-card fade-up">
+        <div class="ind-head"><span class="ind-emoji">💬</span><div><div class="ind-name">Interactions</div><div class="ind-weight">Poids : 5%</div></div></div>
+        <div class="ind-track"><div class="ind-fill" data-width="25%" style="width:0;background:#8B5CF6;"></div></div>
+        <div class="ind-pct">Impact : faible</div>
+        <span class="risk-tag rt-low">Indicateur complémentaire</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Découvrez notre solution</h2>
+    <p>DécroWatch répond directement à ces problèmes avec un système de détection intelligent et automatisé.</p>
+    <a href="solution.html" class="btn btn-white">Voir DécroWatch en action →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>Décro</span>Watch</div>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a><a href="probleme.html">Problème</a><a href="solution.html">Solution</a><a href="statistiques.html">Statistiques</a><a href="equipe.html">Équipe</a>
+  </div>
+  <div class="footer-copy">© 2026 Groupe ISI · Module Atelier Créatif · Samba B. Kane</div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

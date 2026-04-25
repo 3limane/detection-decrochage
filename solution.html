@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>La Solution — DécroWatch</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .page-hero { background: linear-gradient(155deg, #F0FDF4 0%, #EFF6FF 60%, #F8FAFC 100%); padding: 130px 0 70px; position: relative; overflow: hidden; }
+    .page-hero::before { content:''; position:absolute; top:-100px; right:-100px; width:500px; height:500px; background:radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 65%); border-radius:50%; }
+    .page-hero-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+    .page-hero h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:800; color:var(--text); letter-spacing:-0.7px; margin:12px 0 16px; line-height:1.2; }
+    .page-hero p { color:var(--text-3); font-size:1.05rem; max-width:580px; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+    @media(max-width:768px){ .two-col{grid-template-columns:1fr;} }
+    .feature-visual {
+      background: var(--bg); border-radius: var(--radius-lg); border: 1px solid var(--border);
+      box-shadow: var(--shadow-md); overflow: hidden;
+    }
+    .fv-header { background: linear-gradient(135deg, #065F46, #059669); padding: 20px 24px; }
+    .fv-header h3 { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem; font-weight:700; color:#fff; }
+    .fv-header span { font-size:0.75rem; color:rgba(255,255,255,0.65); }
+    .fv-body { padding: 20px 24px; }
+    .fv-row { display:flex; align-items:center; gap:14px; padding:10px 0; border-bottom:1px solid var(--bg-3); }
+    .fv-row:last-child { border-bottom:none; }
+    .fv-indicator { width: 36px; height: 36px; border-radius: 9px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0; }
+    .fv-label { flex:1; font-size:0.85rem; font-weight:600; color:var(--text); }
+    .fv-bar-wrap { width: 100px; }
+    .fv-bar-track { background:var(--bg-3); border-radius:50px; height:6px; overflow:hidden; }
+    .fv-bar-fill { height:100%; border-radius:50px; transition:width 1.2s ease; }
+    .fv-score { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem; font-weight:700; width:36px; text-align:right; }
+    .score-recap { background:var(--bg-3); border-radius:12px; padding:16px 20px; margin-top:16px; display:flex; align-items:center; justify-content:space-between; }
+    .sr-label { font-size:0.85rem; color:var(--text-2); font-weight:600; }
+    .sr-score { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.8rem; font-weight:800; }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="1.6"/><path d="M9 5.5v3.5l2 1.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="13.5" cy="4.5" r="1.8" fill="#34D399"/></svg>
+      </div>
+      Décro<span>Watch</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="probleme.html">Problème</a></li>
+      <li><a href="solution.html">Solution</a></li>
+      <li><a href="statistiques.html">Statistiques</a></li>
+      <li><a href="equipe.html">Équipe</a></li>
+      <li><a href="solution.html" class="btn nav-cta">Voir la solution →</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-tag">La solution</div>
+    <h1>DécroWatch : détecter, alerter, <span style="color:var(--green)">agir</span></h1>
+    <p>Un système intelligent de scoring qui analyse 6 indicateurs en temps réel pour identifier les apprenants en danger et permettre une intervention rapide.</p>
+  </div>
+</div>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Fonctionnement</div>
+      <h2 class="section-title">Le processus en <span class="accent">5 étapes</span></h2>
+    </div>
+    <div class="process-list">
+      <div class="process-item fade-up">
+        <div class="step-circle">1</div>
+        <div class="step-body">
+          <h3>Collecte automatique des données</h3>
+          <p>Le système récupère automatiquement les données de chaque apprenant : taux d'absentéisme, notes par matière, nombre de devoirs rendus, participation et retards. Ces données sont mises à jour en continu.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="step-circle">2</div>
+        <div class="step-body">
+          <h3>Analyse des 6 indicateurs clés</h3>
+          <p>Chaque indicateur est évalué par rapport à des seuils critiques définis avec les équipes pédagogiques. L'algorithme identifie les combinaisons de signaux les plus révélatrices d'un risque réel.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="step-circle">3</div>
+        <div class="step-body">
+          <h3>Calcul du score de risque (0–100)</h3>
+          <p>Un score global est calculé pour chaque apprenant en pondérant les 6 indicateurs. Supérieur à 60 : alerte moyenne. Supérieur à 80 : alerte critique déclenchée immédiatement.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="step-circle">4</div>
+        <div class="step-body">
+          <h3>Notification automatique des formateurs</h3>
+          <p>Une fiche apprenant complète est envoyée à l'équipe pédagogique avec les indicateurs en rouge, le score détaillé et des suggestions d'action concrètes et adaptées au profil.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="step-circle">5</div>
+        <div class="step-body">
+          <h3>Suivi post-intervention</h3>
+          <p>Après l'intervention, le système continue de suivre l'évolution de l'apprenant et mesure l'impact des actions mises en place pour ajuster le suivi si nécessaire.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXEMPLE CONCRET -->
+<section class="bg-light">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Exemple concret</div>
+      <h2 class="section-title">Profil d'un apprenant <span class="accent">à risque élevé</span></h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="alert-box">
+          <div class="alert-box-icon">⚠️</div>
+          <div>
+            <h4>Alerte critique déclenchée</h4>
+            <p>L'apprenant <strong>Apprenant A</strong> présente un score de risque de <strong>82/100</strong>. Une intervention pédagogique est recommandée dans les 48 heures.</p>
+          </div>
+        </div>
+        <p style="font-size:0.92rem;color:var(--text-3);margin-bottom:16px;">Les actions suggérées par DécroWatch :</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.88rem;color:var(--text-2);"><span style="color:var(--blue);font-size:1rem;flex-shrink:0;">→</span> Entretien individuel avec l'apprenant dans les 24h</li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.88rem;color:var(--text-2);"><span style="color:var(--blue);font-size:1rem;flex-shrink:0;">→</span> Contact de la famille ou du tuteur pédagogique</li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.88rem;color:var(--text-2);"><span style="color:var(--blue);font-size:1rem;flex-shrink:0;">→</span> Mise en place d'un soutien scolaire ciblé en mathématiques</li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.88rem;color:var(--text-2);"><span style="color:var(--blue);font-size:1rem;flex-shrink:0;">→</span> Suivi hebdomadaire renforcé pendant 4 semaines</li>
+        </ul>
+      </div>
+      <div class="feature-visual fade-up">
+        <div class="fv-header">
+          <h3>📋 Analyse — Apprenant A</h3>
+          <span>Score calculé le 25 Avril 2026 à 09:14</span>
+        </div>
+        <div class="fv-body">
+          <div class="fv-row">
+            <div class="fv-indicator" style="background:#FEF2F2;">📅</div>
+            <span class="fv-label">Assiduité</span>
+            <div class="fv-bar-wrap"><div class="fv-bar-track"><div class="fv-bar-fill" data-width="85%" style="width:0;background:#EF4444;"></div></div></div>
+            <span class="fv-score sv-red">42%</span>
+          </div>
+          <div class="fv-row">
+            <div class="fv-indicator" style="background:#FFFBEB;">📊</div>
+            <span class="fv-label">Résultats</span>
+            <div class="fv-bar-wrap"><div class="fv-bar-track"><div class="fv-bar-fill" data-width="70%" style="width:0;background:#F59E0B;"></div></div></div>
+            <span class="fv-score sv-orange">7.2</span>
+          </div>
+          <div class="fv-row">
+            <div class="fv-indicator" style="background:#EFF6FF;">✏️</div>
+            <span class="fv-label">Rendus devoirs</span>
+            <div class="fv-bar-wrap"><div class="fv-bar-track"><div class="fv-bar-fill" data-width="55%" style="width:0;background:#2563EB;"></div></div></div>
+            <span class="fv-score" style="color:var(--blue);">55%</span>
+          </div>
+          <div class="fv-row">
+            <div class="fv-indicator" style="background:#F5F3FF;">🙋</div>
+            <span class="fv-label">Participation</span>
+            <div class="fv-bar-wrap"><div class="fv-bar-track"><div class="fv-bar-fill" data-width="30%" style="width:0;background:#8B5CF6;"></div></div></div>
+            <span class="fv-score" style="color:#7C3AED;">Faible</span>
+          </div>
+          <div class="score-recap">
+            <span class="sr-label">Score de risque global</span>
+            <span class="sr-score sv-red">82 <span style="font-size:0.9rem;color:var(--text-3);">/100</span></span>
+          </div>
+          <div style="text-align:center;margin-top:14px;">
+            <span class="st-badge">🔴 Intervention urgente requise</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVANTAGES -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Avantages</div>
+      <h2 class="section-title">Pourquoi choisir <span class="accent">DécroWatch</span> ?</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="card fade-up">
+        <div class="card-icon green">⚡</div>
+        <h3>Détection en 72h</h3>
+        <p>Contre plusieurs semaines sans outil. Le système identifie les risques bien avant qu'ils deviennent irréversibles.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon blue">🎯</div>
+        <h3>87% de précision</h3>
+        <p>Un algorithme de scoring robuste basé sur 6 indicateurs validés par les équipes pédagogiques du Groupe ISI.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon teal">📱</div>
+        <h3>Interface intuitive</h3>
+        <p>Aucune formation technique requise. Le tableau de bord est accessible et compréhensible par tous les formateurs.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon orange">🔒</div>
+        <h3>Données sécurisées</h3>
+        <p>Toutes les données des apprenants sont traitées de manière confidentielle et sécurisée, conformément aux bonnes pratiques.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Voir les statistiques en temps réel</h2>
+    <p>Découvrez les chiffres concrets du système DécroWatch et son impact sur la réduction du décrochage.</p>
+    <a href="statistiques.html" class="btn btn-white">Voir les statistiques →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>Décro</span>Watch</div>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a><a href="probleme.html">Problème</a><a href="solution.html">Solution</a><a href="statistiques.html">Statistiques</a><a href="equipe.html">Équipe</a>
+  </div>
+  <div class="footer-copy">© 2026 Groupe ISI · Module Atelier Créatif · Samba B. Kane</div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
