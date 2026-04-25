@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DécroWatch — Détection du Décrochage Scolaire</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="1.6"/>
+          <path d="M9 5.5v3.5l2 1.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="13.5" cy="4.5" r="1.8" fill="#34D399"/>
+        </svg>
+      </div>
+      Décro<span>Watch</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="probleme.html">Problème</a></li>
+      <li><a href="solution.html">Solution</a></li>
+      <li><a href="statistiques.html">Statistiques</a></li>
+      <li><a href="equipe.html">Équipe</a></li>
+      <li><a href="solution.html" class="btn nav-cta">Voir la solution →</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner container">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="hero-badge">Groupe ISI · Atelier Créatif · Avril 2026</div>
+      <h1>Détecter le décrochage <span class="accent">avant qu'il soit trop tard</span></h1>
+      <p class="hero-desc">Un système intelligent qui analyse en temps réel les comportements des apprenants — assiduité, notes, participation — et alerte les formateurs dès les premiers signaux d'alarme.</p>
+      <div class="hero-btns">
+        <a href="solution.html" class="btn btn-primary">Découvrir la solution →</a>
+        <a href="probleme.html" class="btn btn-secondary">Comprendre le problème</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num" data-count="6" data-suffix="">0</div>
+          <div class="hero-stat-label">Indicateurs analysés</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" data-count="3" data-suffix="">0</div>
+          <div class="hero-stat-label">Niveaux de risque</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" data-count="87" data-suffix="%">0%</div>
+          <div class="hero-stat-label">Précision de détection</div>
+        </div>
+      </div>
+    </div>
+    <!-- RIGHT - Dashboard preview -->
+    <div class="hero-visual">
+      <div class="float-card float-card-1">
+        <div class="fc-icon" style="background:#FEF2F2;">🔴</div>
+        <!-- <div>
+          <div class="fc-val">12 alertes</div>
+          <div class="fc-sub">Apprenants à risque</div>
+        </div> -->
+      </div>
+      <div class="hero-visual-card">
+        <div class="dashboard-preview">
+          <div class="dash-header">
+            <span class="dash-title">📊 Tableau de bord — Avril 2026</span>
+            <span class="dash-badge">● En direct</span>
+          </div>
+          <div class="dash-metrics">
+            <div class="dash-metric">
+              <div class="dash-metric-val val-red" data-count="12">0</div>
+              <div class="dash-metric-label">À risque élevé</div>
+            </div>
+            <div class="dash-metric">
+              <div class="dash-metric-val val-orange" data-count="21">0</div>
+              <div class="dash-metric-label">Risque moyen</div>
+            </div>
+            <div class="dash-metric">
+              <div class="dash-metric-val val-green" data-count="91">0</div>
+              <div class="dash-metric-label">Stables</div>
+            </div>
+          </div>
+          <div class="dash-chart">
+            <div class="chart-label">Tendance — 6 derniers mois</div>
+            <div class="chart-bars">
+              <div class="chart-bar" style="height:55%;background:#DBEAFE;"></div>
+              <div class="chart-bar" style="height:70%;background:#BFDBFE;"></div>
+              <div class="chart-bar" style="height:85%;background:#93C5FD;"></div>
+              <div class="chart-bar" style="height:65%;background:#60A5FA;"></div>
+              <div class="chart-bar" style="height:45%;background:#3B82F6;"></div>
+              <div class="chart-bar" style="height:30%;background:#2563EB;"></div>
+            </div>
+          </div>
+          <div class="dash-list">
+            <div class="dash-list-row">
+              <div class="dl-dot" style="background:#EF4444;"></div>
+              <span class="dl-name">Apprenant A</span>
+              <span class="dl-score sv-red" style="font-size:0.8rem;font-weight:700;">82/100</span>
+              <span class="dl-tag" style="background:#FEF2F2;color:#DC2626;">Critique</span>
+            </div>
+            <div class="dash-list-row">
+              <div class="dl-dot" style="background:#F59E0B;"></div>
+              <span class="dl-name">Apprenant B</span>
+              <span class="dl-score sv-orange" style="font-size:0.8rem;font-weight:700;">64/100</span>
+              <span class="dl-tag" style="background:#FFFBEB;color:#D97706;">Moyen</span>
+            </div>
+            <div class="dash-list-row">
+              <div class="dl-dot" style="background:#10B981;"></div>
+              <span class="dl-name">Apprenant C</span>
+              <span class="dl-score sv-green" style="font-size:0.8rem;font-weight:700;">24/100</span>
+              <span class="dl-tag" style="background:#F0FDF4;color:#16A34A;">Stable</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="float-card float-card-2">
+        <div class="fc-icon" style="background:#F0FDF4;">✅</div>
+        <div>
+          <div class="fc-val">+87%</div>
+          <div class="fc-sub">Taux de détection</div>
+        </div>
+         <div>
+          <div class="fc-val">12 alertes</div>
+          <div class="fc-sub">Apprenants à risque</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="stat-cell">
+      <div class="stat-num" data-count="124">0</div>
+      <div class="stat-lbl">Apprenants suivis</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" data-count="87" data-suffix="%">0%</div>
+      <div class="stat-lbl">Précision de détection</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" data-count="72" data-suffix="h">0h</div>
+      <div class="stat-lbl">Délai moyen de détection</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" data-count="6">0</div>
+      <div class="stat-lbl">Indicateurs analysés</div>
+    </div>
+  </div>
+</div>
+
+<!-- POURQUOI -->
+<section class="bg-light">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Le problème</div>
+      <h2 class="section-title">Pourquoi les apprenants <span class="accent">décrochent-ils ?</span></h2>
+      <p class="section-sub">Le décrochage est un processus silencieux qui se construit progressivement à travers des signaux faibles souvent ignorés.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card fade-up">
+        <div class="card-icon red">📉</div>
+        <h3>Baisse des résultats</h3>
+        <p>Les notes chutent progressivement sans que personne ne remarque la tendance avant qu'il soit trop tard pour agir.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon orange">🚪</div>
+        <h3>Absentéisme croissant</h3>
+        <p>Les absences répétées sont souvent le premier signe visible d'un désengagement profond en cours de formation.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon blue">😶</div>
+        <h3>Désengagement silencieux</h3>
+        <p>La baisse de participation et le non-rendu des devoirs signalent une perte de motivation difficile à détecter manuellement.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon green">⏰</div>
+        <h3>Réaction tardive</h3>
+        <p>Sans outil de suivi automatisé, les équipes pédagogiques interviennent trop tard, quand le décrochage est déjà consommé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Notre solution</div>
+      <h2 class="section-title">DécroWatch : la détection <span class="accent">intelligente</span></h2>
+      <p class="section-sub">Un système qui collecte, analyse et alerte automatiquement pour permettre une intervention pédagogique rapide et ciblée.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card fade-up">
+        <div class="card-icon blue">📡</div>
+        <h3>Collecte automatique</h3>
+        <p>Le système collecte en continu les données de chaque apprenant : notes, absences, rendus et participation.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon teal">🧮</div>
+        <h3>Score de risque</h3>
+        <p>Un algorithme calcule un score de risque de 0 à 100 pour chaque apprenant en combinant les 6 indicateurs.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon orange">🔔</div>
+        <h3>Alertes automatiques</h3>
+        <p>Dès qu'un seuil critique est franchi, une alerte est envoyée instantanément à l'équipe pédagogique responsable.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon green">🎯</div>
+        <h3>Intervention ciblée</h3>
+        <p>Les formateurs disposent d'une fiche apprenant complète avec suggestions d'action personnalisées et adaptées.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Prêt à protéger vos apprenants ?</h2>
+    <p>Découvrez comment DécroWatch fonctionne concrètement et comment il peut s'intégrer dans votre établissement.</p>
+    <a href="solution.html" class="btn btn-white">Voir le fonctionnement complet →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>Décro</span>Watch</div>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="probleme.html">Problème</a>
+    <a href="solution.html">Solution</a>
+    <a href="statistiques.html">Statistiques</a>
+    <a href="equipe.html">Équipe</a>
+  </div>
+  <div class="footer-copy">© 2026 Groupe ISI · Module Atelier Créatif · Groupe 8</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
