@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Statistiques — DécroWatch</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .page-hero { background: linear-gradient(155deg, #FFFBEB 0%, #F8FAFC 60%, #EFF6FF 100%); padding: 130px 0 70px; position: relative; overflow: hidden; }
+    .page-hero-inner { max-width:var(--max-w); margin:0 auto; padding:0 40px; position:relative; z-index:1; }
+    .page-hero h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:800; color:var(--text); letter-spacing:-0.7px; margin:12px 0 16px; }
+    .page-hero p { color:var(--text-3); font-size:1.05rem; max-width:560px; }
+    .dashboard-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    @media(max-width:768px){ .dashboard-grid{grid-template-columns:1fr;} }
+    .dash-card { background:var(--bg); border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow-sm); overflow:hidden; }
+    .dc-header { padding:18px 22px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .dc-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.9rem; color:var(--text); }
+    .dc-sub { font-size:0.75rem; color:var(--text-4); }
+    .dc-body { padding:20px 22px; }
+    /* Donut */
+    .donut-wrap { display:flex; align-items:center; gap:28px; }
+    .donut-legend { display:flex; flex-direction:column; gap:10px; flex:1; }
+    .dl-item { display:flex; align-items:center; gap:10px; }
+    .dl-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+    .dl-lbl { font-size:0.82rem; color:var(--text-2); flex:1; }
+    .dl-pct { font-size:0.82rem; font-weight:700; color:var(--text); }
+    /* Bar chart */
+    .bar-list { display:flex; flex-direction:column; gap:12px; }
+    .bl-row { display:flex; align-items:center; gap:12px; }
+    .bl-name { width:80px; font-size:0.78rem; font-weight:600; color:var(--text-2); flex-shrink:0; }
+    .bl-track { flex:1; background:var(--bg-3); border-radius:50px; height:8px; overflow:hidden; }
+    .bl-fill { height:100%; border-radius:50px; transition:width 1.3s ease; }
+    .bl-val { width:32px; text-align:right; font-size:0.78rem; font-weight:700; color:var(--text); }
+    /* Trend */
+    .trend-wrap { display:flex; flex-direction:column; gap:0; }
+    .tr-row { display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid var(--bg-3); }
+    .tr-row:last-child { border-bottom:none; }
+    .tr-month { width:72px; font-size:0.8rem; font-weight:600; color:var(--text-2); }
+    .tr-bar-wrap { flex:1; }
+    .tr-bar-track { background:var(--bg-3); border-radius:50px; height:7px; overflow:hidden; }
+    .tr-bar-fill { height:100%; border-radius:50px; transition:width 1.3s ease; }
+    .tr-num { width:28px; text-align:right; font-size:0.8rem; font-weight:700; color:var(--text); }
+    .tr-badge { font-size:0.68rem; font-weight:700; padding:2px 8px; border-radius:50px; width:54px; text-align:center; }
+    /* Students */
+    .std-list { display:flex; flex-direction:column; gap:0; }
+    .std-row { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid var(--bg-3); }
+    .std-row:last-child { border-bottom:none; }
+    .std-av { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; color:#fff; flex-shrink:0; }
+    .std-name { flex:1; font-size:0.85rem; font-weight:600; color:var(--text); }
+    .std-score { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.9rem; font-weight:800; width:40px; text-align:center; }
+    .std-tag { font-size:0.68rem; font-weight:700; padding:3px 9px; border-radius:50px; }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="1.6"/><path d="M9 5.5v3.5l2 1.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="13.5" cy="4.5" r="1.8" fill="#34D399"/></svg>
+      </div>
+      Décro<span>Watch</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="probleme.html">Problème</a></li>
+      <li><a href="solution.html">Solution</a></li>
+      <li><a href="statistiques.html">Statistiques</a></li>
+      <li><a href="equipe.html">Équipe</a></li>
+      <li><a href="solution.html" class="btn nav-cta">Voir la solution →</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-tag">Tableau de bord</div>
+    <h1>Statistiques & <span style="color:var(--orange)">Indicateurs</span></h1>
+    <p>Vue d'ensemble des données de suivi des apprenants et des résultats du système de détection DécroWatch.</p>
+  </div>
+</div>
+
+<!-- KPI STRIP -->
+<div class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="stat-cell"><div class="stat-num" data-count="124">0</div><div class="stat-lbl">Apprenants suivis</div></div>
+    <div class="stat-cell"><div class="stat-num" data-count="18">0</div><div class="stat-lbl">Alertes actives</div></div>
+    <div class="stat-cell"><div class="stat-num" data-count="87" data-suffix="%">0%</div><div class="stat-lbl">Précision de détection</div></div>
+    <div class="stat-cell"><div class="stat-num" data-count="7">0</div><div class="stat-lbl">Interventions ce mois</div></div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<section class="bg-light">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Analyse</div>
+      <h2 class="section-title">Vue d'ensemble des <span class="accent">données</span></h2>
+    </div>
+    <div class="dashboard-grid">
+
+      <!-- Répartition risques -->
+      <div class="dash-card fade-up">
+        <div class="dc-header">
+          <span class="dc-title">Répartition des niveaux de risque</span>
+          <span class="dc-sub">124 apprenants</span>
+        </div>
+        <div class="dc-body">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle cx="55" cy="55" r="40" fill="none" stroke="#F1F5F9" stroke-width="16"/>
+              <circle cx="55" cy="55" r="40" fill="none" stroke="#10B981" stroke-width="16"
+                stroke-dasharray="138.2 113.1" stroke-dashoffset="0" transform="rotate(-90 55 55)"/>
+              <circle cx="55" cy="55" r="40" fill="none" stroke="#F59E0B" stroke-width="16"
+                stroke-dasharray="75.4 175.9" stroke-dashoffset="-138.2" transform="rotate(-90 55 55)"/>
+              <circle cx="55" cy="55" r="40" fill="none" stroke="#EF4444" stroke-width="16"
+                stroke-dasharray="37.7 213.6" stroke-dashoffset="-213.6" transform="rotate(-90 55 55)"/>
+              <text x="55" y="51" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="15" font-weight="800" fill="#0F172A">124</text>
+              <text x="55" y="63" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#64748B">apprenants</text>
+            </svg>
+            <div class="donut-legend">
+              <div class="dl-item"><div class="dl-dot" style="background:#10B981"></div><span class="dl-lbl">Faible risque</span><span class="dl-pct">55%</span></div>
+              <div class="dl-item"><div class="dl-dot" style="background:#F59E0B"></div><span class="dl-lbl">Risque moyen</span><span class="dl-pct">30%</span></div>
+              <div class="dl-item"><div class="dl-dot" style="background:#EF4444"></div><span class="dl-lbl">Risque élevé</span><span class="dl-pct">15%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicateurs critiques -->
+      <div class="dash-card fade-up">
+        <div class="dc-header">
+          <span class="dc-title">Indicateurs critiques par catégorie</span>
+          <span class="dc-sub">% d'apprenants concernés</span>
+        </div>
+        <div class="dc-body">
+          <div class="bar-list">
+            <div class="bl-row"><span class="bl-name">Absences</span><div class="bl-track"><div class="bl-fill" data-width="72%" style="width:0;background:#EF4444;"></div></div><span class="bl-val">72%</span></div>
+            <div class="bl-row"><span class="bl-name">Notes</span><div class="bl-track"><div class="bl-fill" data-width="58%" style="width:0;background:#F59E0B;"></div></div><span class="bl-val">58%</span></div>
+            <div class="bl-row"><span class="bl-name">Rendus</span><div class="bl-track"><div class="bl-fill" data-width="45%" style="width:0;background:#2563EB;"></div></div><span class="bl-val">45%</span></div>
+            <div class="bl-row"><span class="bl-name">Particip.</span><div class="bl-track"><div class="bl-fill" data-width="33%" style="width:0;background:#0EA5E9;"></div></div><span class="bl-val">33%</span></div>
+            <div class="bl-row"><span class="bl-name">Retards</span><div class="bl-track"><div class="bl-fill" data-width="22%" style="width:0;background:#10B981;"></div></div><span class="bl-val">22%</span></div>
+            <div class="bl-row"><span class="bl-name">Interact.</span><div class="bl-track"><div class="bl-fill" data-width="15%" style="width:0;background:#8B5CF6;"></div></div><span class="bl-val">15%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tendance mensuelle -->
+      <div class="dash-card fade-up">
+        <div class="dc-header">
+          <span class="dc-title">Alertes sur 6 mois</span>
+          <span class="dc-sub">Tendance à la baisse ↓</span>
+        </div>
+        <div class="dc-body">
+          <div class="trend-wrap">
+            <div class="tr-row"><span class="tr-month">Novembre</span><div class="tr-bar-wrap"><div class="tr-bar-track"><div class="tr-bar-fill" data-width="77%" style="width:0;background:#EF4444;"></div></div></div><span class="tr-num">24</span><span class="tr-badge" style="background:#FEF2F2;color:#DC2626;">↑ +4</span></div>
+            <div class="tr-row"><span class="tr-month">Décembre</span><div class="tr-bar-wrap"><div class="tr-bar-track"><div class="tr-bar-fill" data-width="100%" style="width:0;background:#F97316;"></div></div></div><span class="tr-num">31</span><span class="tr-badge" style="background:#FFF7ED;color:#C2410C;">↑ +7</span></div>
+            <div class="tr-row"><span class="tr-month">Janvier</span><div class="tr-bar-wrap"><div class="tr-bar-track"><div class="tr-bar-fill" data-width="90%" style="width:0;background:#F59E0B;"></div></div></div><span class="tr-num">28</span><span class="tr-badge" style="background:#F0FDF4;color:#16A34A;">↓ -3</span></div>
+            <div class="tr-row"><span class="tr-month">Février</span><div class="tr-bar-wrap"><div class="tr-bar-track"><div class="tr-bar-fill" data-width="71%" style="width:0;background:#60A5FA;"></div></div></div><span class="tr-num">22</span><span class="tr-badge" style="background:#F0FDF4;color:#16A34A;">↓ -6</span></div>
+            <div class="tr-row"><span class="tr-month">Mars</span><div class="tr-bar-wrap"><div class="tr-bar-track"><div class="tr-bar-fill" data-width="64%" style="width:0;background:#3B82F6;"></div></div></div><span class="tr-num">20</span><span class="tr-badge" style="background:#F0FDF4;color:#16A34A;">↓ -2</span></div>
+            <div class="tr-row"><span class="tr-month">Avril</span><div class="tr-bar-wrap"><div class="tr-bar-track"><div class="tr-bar-fill" data-width="58%" style="width:0;background:#2563EB;"></div></div></div><span class="tr-num">18</span><span class="tr-badge" style="background:#F0FDF4;color:#16A34A;">↓ -2</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apprenants -->
+      <div class="dash-card fade-up">
+        <div class="dc-header">
+          <span class="dc-title">Apprenants à surveiller</span>
+          <span class="dc-sub">Score de risque actuel</span>
+        </div>
+        <div class="dc-body">
+          <div class="std-list">
+            <div class="std-row"><div class="std-av" style="background:#EF4444;">A</div><span class="std-name">Apprenant A</span><span class="std-score sv-red">82</span><span class="std-tag" style="background:#FEF2F2;color:#DC2626;">🔴 Élevé</span></div>
+            <div class="std-row"><div class="std-av" style="background:#DC2626;">B</div><span class="std-name">Apprenant B</span><span class="std-score sv-red">76</span><span class="std-tag" style="background:#FEF2F2;color:#DC2626;">🔴 Élevé</span></div>
+            <div class="std-row"><div class="std-av" style="background:#F59E0B;">C</div><span class="std-name">Apprenant C</span><span class="std-score sv-orange">64</span><span class="std-tag" style="background:#FFFBEB;color:#D97706;">🟡 Moyen</span></div>
+            <div class="std-row"><div class="std-av" style="background:#F59E0B;">D</div><span class="std-name">Apprenant D</span><span class="std-score sv-orange">61</span><span class="std-tag" style="background:#FFFBEB;color:#D97706;">🟡 Moyen</span></div>
+            <div class="std-row"><div class="std-av" style="background:#10B981;">E</div><span class="std-name">Apprenant E</span><span class="std-score sv-green">38</span><span class="std-tag" style="background:#F0FDF4;color:#16A34A;">🟢 Stable</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Rencontrez notre équipe</h2>
+    <p>Découvrez les 4 membres qui ont conçu et développé DécroWatch dans le cadre de l'Atelier Créatif ISI.</p>
+    <a href="equipe.html" class="btn btn-white">Voir l'équipe →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>Décro</span>Watch</div>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a><a href="probleme.html">Problème</a><a href="solution.html">Solution</a><a href="statistiques.html">Statistiques</a><a href="equipe.html">Équipe</a>
+  </div>
+  <div class="footer-copy">© 2026 Groupe ISI · Module Atelier Créatif · Samba B. Kane</div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
